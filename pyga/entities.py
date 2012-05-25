@@ -95,8 +95,8 @@ class Campaign(object):
         if len(parts) != 5:
             utils.pyga_logger('The given "__utmz" cookie value is invalid.')
 
-        self.creation_time = datetime.utcfromtimestamp(parts[1])
-        self.response_count = parts[3]
+        self.creation_time = datetime.utcfromtimestamp(float(parts[1]))
+        self.response_count = int(parts[3])
         params.insert(0, parts[4])
 
         for param in params:
@@ -303,8 +303,8 @@ class Session(object):
         if len(parts) != 4:
             utils.pyga_logger('The given "__utmb" cookie value is invalid.')
 
-        self.track_count = parts[1]
-        self.start_time = datetime.utcfromtimestamp(parts[3])
+        self.track_count = int(parts[1])
+        self.start_time = datetime.utcfromtimestamp(float(parts[3]))
 
         return self
 
@@ -433,11 +433,11 @@ class Visitor(object):
         if len(parts) != 6:
             utils.pyga_logger('The given "__utma" cookie value is invalid.')
 
-        self.unique_id = parts[1]
-        self.first_visit_time = datetime.utcfromtimestamp(parts[2])
-        self.previous_visit_time = datetime.utcfromtimestamp(parts[3])
-        self.current_visit_time = datetime.utcfromtimestamp(parts[4])
-        self.visit_count = parts[5]
+        self.unique_id = int(parts[1])
+        self.first_visit_time = datetime.utcfromtimestamp(float(parts[2]))
+        self.previous_visit_time = datetime.utcfromtimestamp(float(parts[3]))
+        self.current_visit_time = datetime.utcfromtimestamp(float(parts[4]))
+        self.visit_count = int(parts[5])
 
         return self
 
