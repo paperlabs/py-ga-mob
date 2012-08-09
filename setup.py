@@ -4,7 +4,7 @@
 import os
 from setuptools import setup, find_packages
 
-ver = '2.3.paperlabs'
+ver = '2.3.paperlabs2'
 README = os.path.join(os.path.dirname(__file__), 'README.rst')
 long_desc = open(README).read() + '\n\n'
 
