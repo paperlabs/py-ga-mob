@@ -111,7 +111,7 @@ class Campaign(object):
         params = parts[4].split(Campaign.CAMPAIGN_DELIMITER)
 
         for param in params:
-            key, val = param.split('=')
+            key, val = param.split('=', 1)
 
             try:
                 setattr(self, self.UTMZ_PARAM_MAP[key], unquote_plus(val))
