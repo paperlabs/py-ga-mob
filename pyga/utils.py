@@ -123,7 +123,9 @@ def smart_str(s, encoding='utf-8', errors='strict'):
 
     If strings_only is True, don't convert (some) non-string-like objects.
     """
-    if not isinstance(s, basestring):
+    if not s:
+        return s
+    elif not isinstance(s, basestring):
         try:
             return str(s)
         except UnicodeEncodeError:
