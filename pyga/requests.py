@@ -70,6 +70,8 @@ class GIFRequest(object):
             headers['Content-Type'] = 'text/plain'
             headers['Content-Length'] = len(query_string)
 
+        headers = dict((headers[k], utils.smart_str(v)) for k, v in headers.iteritems())
+
         logger.debug(url)
         if post:
             logger.debug(post)
